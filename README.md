@@ -14,9 +14,9 @@ mvn -v
 java -version
 ```
 
-## Maven dependency (JitPack)
+## Maven demo
 
-Add the JitPack repository to your `pom.xml` and use the exact coordinates published for this project. The project exposes the artifact as `JavaFastPFOR` with a tag-style version. For example:
+We added the JitPack repository to our `pom.xml` and use the exact coordinates published for this project. The project exposes the artifact as `JavaFastPFOR` with a tag-style version. For example:
 
 ```xml
 <repositories>
@@ -29,28 +29,21 @@ Add the JitPack repository to your `pom.xml` and use the exact coordinates publi
 <dependency>
     <groupId>com.github.fast-pack</groupId>
     <artifactId>JavaFastPFOR</artifactId>
-    <version>JavaFastPFOR-0.3.0</version>
+    <version>JavaFastPFOR-0.3.1</version>
 </dependency>
 ```
 
-Note: coordinates are case-sensitive. Using `JavaFastPFor` (different case) or a short `0.3.0` version may fail if that exact artifact/version was not published.
+Note: coordinates are case-sensitive. Using `JavaFastPFor` (different case) or a short `0.3.1` version may fail if that exact artifact/version was not published.
 
-## Build
+### Build
 
 Download dependencies and compile:
 
 ```bash
-mvn -U package
+mvn package
 ```
 
-If Maven cached a failed resolution you can clear the specific cached artifact and retry:
-
-```bash
-rm -rf ~/.m2/repository/com/github/fast-pack/JavaFastPFOR
-mvn -U package
-```
-
-## Run the demo
+### Run the demo
 
 Run the `Main` class included in this project:
 
@@ -66,7 +59,41 @@ first 20 original: [0, 0, 0, ...]
 first 20 recovered: [0, 0, 0, ...]
 ```
 
-## Troubleshooting
 
-- "Could not find artifact ..." when building: check that the `artifactId` and `version` in your `pom.xml` exactly match what JitPack exposes (case-sensitive). Use the repository page `https://jitpack.io/#fast-pack/JavaFastPFOR` to inspect available versions/tags.
-- If JitPack builds are failing for a tag, try using the exact commit hash or `master-SNAPSHOT` while debugging.
+## Gradle
+
+This project also includes a Gradle build. 
+
+```
+
+repositories {
+    mavenCentral()
+    maven { url 'https://jitpack.io' }
+}
+
+dependencies {
+    implementation 'com.github.fast-pack:JavaFastPFOR:JavaFastPFOR-0.3.1'
+}
+```
+
+
+It uses the JitPack repository and the same dependency coordinates.
+
+Build with Gradle:
+
+```bash
+./gradlew clean build
+```
+
+Run the demo with Gradle:
+
+```bash
+./gradlew run
+```
+
+If you don't have the wrapper, you can use a local Gradle installation:
+
+```bash
+gradle clean build
+gradle run
+```

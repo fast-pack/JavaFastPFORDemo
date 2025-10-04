@@ -1,0 +1,26 @@
+plugins {
+    id 'java'
+    id 'application'
+}
+
+java {
+    toolchain {
+        languageVersion = JavaLanguageVersion.of(21)
+    }
+}
+
+repositories {
+    mavenCentral()
+    maven { url 'https://jitpack.io' }
+}
+
+dependencies {
+    implementation 'com.github.fast-pack:JavaFastPFOR:JavaFastPFOR-0.3.0'
+}
+
+application {
+    mainClass = 'org.example.Main'
+}
+
+// Note: Java toolchain is configured above; explicit sourceCompatibility/targetCompatibility
+// are not required at the project root for modern Gradle versions.
