@@ -1,6 +1,6 @@
-## JavaFastPFOR demo
+## JavaFastPFOR demo [![CI - Maven and Gradle](https://github.com/fast-pack/JavaFastPFORDemo/actions/workflows/ci.yml/badge.svg)](https://github.com/fast-pack/JavaFastPFORDemo/actions/workflows/ci.yml)
 
-This small Maven project shows how to use JavaFastPFOR (from the fast-pack/JavaFastPFOR repository) to compress and uncompress an int[] using `FastPFOR128`.
+This small Maven project shows how to use JavaFastPFOR (from the fast-pack/JavaFastPFOR repository) to compress and uncompress an int[] using `FastPFOR128`. We use both gradle and maven.
 
 ## Prerequisites
 
